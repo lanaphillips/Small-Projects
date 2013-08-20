@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Nav Bar Transitions</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$(function(){
+
+			var menu = $('#menu');
+
+			menu.hover(function(){
+				$('body').toggleClass('menu-hover');
+			});
+
+			$('a[data-animation]').on('click', function(event){
+				event.preventDefault();
+
+				var animation = $(this).attr('data-animation');
+
+				document.body.className = animation;
+			})
+
+		});
+
+	</script>
+
+</head>
+<body class="nav-over">
+
+	<div id="menu">
+		<nav>
+			<p>Hi!</p>
+		</nav>
+
+	</div>
+
+	<div id="page">
+
+		<article>
+			<h1>Menu Options</h1>
+			<p>Below are just a few examples of different ways to transition Sidebar Menus. Click on one of the example titles below, and then hover over to the left to see the menu transition.</p>
+			<ul>
+				<li><a href="#" data-animation="nav-over">Nav Slideout Over Content (default)</a></li>
+				<li><a href="#" data-animation="nav-push">Nav Push Over Content</a></li>
+				<li><a href="#" data-animation="page-3D">3D Nav Transition</a></li>
+			</ul>
+			<p>The 3D Nav Transition is a recreation of <a href="http://lab.hakim.se/meny/">Meny (it's swedish).</a></p>
+		</article>
+
+	</div>
+
+</body>
+</html>

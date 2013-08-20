@@ -1,0 +1,125 @@
+	*{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	body{
+		background: #333;
+		height: 100%;
+		font-family: Helvetica, Arial, sans-serif;
+		overflow: hidden;
+	}
+	a{
+		color: #005A31;
+		text-decoration: none;
+	}
+
+	#menu{
+		width: auto;
+		width: 300px;
+		float: left;
+		background: #000;
+		position: absolute;
+		top: 0; left: -290px;
+		bottom: 0;
+		z-index: 10;
+		color: #fff;
+		text-align: center;
+		-webkit-transition: all 0.5s ease-in-out;
+		   -moz-transition: all 0.5s ease-in-out;
+		    -ms-transition: all 0.5s ease-in-out;
+		     -o-transition: all 0.5s ease-in-out;
+		        transition: all 0.5s ease-in-out;
+	}
+	#menu p{
+		font-size: 56px;
+		padding: 50px 0;
+	}
+	#menu:before{
+		content: " ";
+		display: block;
+		width: 20px; height: 99%;
+		position: absolute;
+		top: 0; right: -20px;
+		bottom: 0;
+		background: none;
+	}
+	#menu:after{
+		content: " ";
+		display: block;
+		width: 0; height: 0;
+		border-top: 12px solid rgba(0,0,0,0);
+		border-bottom: 12px solid rgba(0,0,0,0);
+		border-left: 15px solid #000;
+		position: absolute;
+		top: 50%; right: -20px;
+		margin: -30px 0 0;
+		opacity: 1;
+		transform: scale(0.9999);
+		-webkit-transition: opacity 0.5s ease-in-out;
+		   -moz-transition: opacity 0.5s ease-in-out;
+		    -ms-transition: opacity 0.5s ease-in-out;
+		     -o-transition: opacity 0.5s ease-in-out;
+		        transition: opacity 0.5s ease-in-out;
+	}
+	.menu-hover #menu:after{opacity: 0;}
+	#page{
+		padding: 25px;
+		position: absolute;
+		top: 0; left: 10px;
+		bottom: 0; right: 0;
+		background: #fff;
+		-webkit-backface-visibility: hidden;
+		   -moz-backface-visibility: hidden;
+				backface-visibility: hidden;
+		-webkit-transform-origin: left center 0;
+		   -moz-transform-origin: left center 0;
+				transform-origin: left center 0;
+		-webkit-transition: all 0.5s ease-in-out;
+		   -moz-transition: all 0.5s ease-in-out;
+		    -ms-transition: all 0.5s ease-in-out;
+		     -o-transition: all 0.5s ease-in-out;
+		        transition: all 0.5s ease-in-out;
+	}
+	#page h1{margin-bottom: 20px;}
+	#page ul{
+		padding: 20px;
+	}
+
+	/* 
+		Transition Option 1 : Simple, Basic. Only animating sidebar.
+	*/
+	#menu:hover{left: 0;}
+
+	/* 
+		Transition Option 2 : Animating Sidebar and Page
+	*/
+	.menu-hover.nav-push #page{
+		left: 300px; right: -300px;
+	}
+
+	/* 
+		Transition Option : 3D transform on Page
+	*/
+	.page-3D #menu{
+		-webkit-transform-origin: right center 0;
+		   -moz-transform-origin: right center 0;
+				transform-origin: right center 0;
+		-webkit-transform: perspective(1200px) rotateY(-10deg);
+		   -moz-transform: perspective(1200px) rotateY(-10deg);
+				transform: perspective(1200px) rotateY(-10deg);
+	}
+	.page-3D #menu:hover{
+		left: 0;
+		-webkit-transform: perspective(1200px) rotateY(0deg);
+		   -moz-transform: perspective(1200px) rotateY(0deg);
+				transform: perspective(1200px) rotateY(0deg);
+	}
+	.menu-hover.page-3D #page{
+		background: #ccc;
+		left: 300px;
+		-webkit-transform: perspective(1600px) rotateY(15deg);
+		   -moz-transform: perspective(1600px) rotateY(15deg);
+		   		transform: perspective(1600px) rotateY(15deg);
+	}
